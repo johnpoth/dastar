@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Graph search path</title>
+</head>
+<link href="opentip.css" rel="stylesheet" type="text/css" />
+<style>
+    html {
+        height: 100%;
+    }
+
+    body {
+        margin: 0px;
+        height: 100%;
+        overflow: hidden;
+        font-family: "Lucida Console", Monaco, monospace;
+        font-size: 14px;
+        font-weight: 300;
+        background-color: #222;
+    }
+
+    .contents {
+        background: rgb(238,238,238);
+        height: 100%;
+    }
+
+    .meny {
+        display: none;
+        padding: 20px;
+        overflow: auto;
+        background: rgb(51,51,51);
+        color:rgb(76, 185, 228);
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    svg {
+        overflow: hidden;
+    }
+
+    table.tooltip {
+        width: 100%;
+        font-size: 12px;
+        border-collapse: collapse;
+    }
+
+    table.tooltip th {
+        padding: 0.25rem;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bolder;
+        border-bottom: 5px solid #333;
+    }
+
+    table.tooltip td {
+        padding: 0.25rem;
+        text-align: left;
+    }
+
+    .node rect {
+        stroke: #333;
+        stroke-width: 2px;
+        fill: #fff;
+    }
+
+    g.active {
+        cursor: pointer;
+    }
+
+    g.active > rect {
+        fill: #333;
+    }
+
+    g.active text {
+        fill: #fff;
+    }
+
+    .edgeLabel text {
+        font-style: italic;
+        font-size: 11px;
+    }
+
+    .edgeLabel rect {
+        fill: rgb(238,238,238);
+    }
+
+    .edgePath path {
+        stroke: #333;
+        stroke-width: 1.5px;
+        fill: none;
+    }
+
+    a:visited {
+        color: rgb(76, 185, 228);
+    }
+
+    .meny-arrow {
+        position: absolute;
+        z-index: 10;
+
+        border: 10px solid transparent;
+
+        -webkit-transition: opacity 0.4s ease 0.4s;
+        -moz-transition: opacity 0.4s ease 0.4s;
+        -ms-transition: opacity 0.4s ease 0.4s;
+        -o-transition: opacity 0.4s ease 0.4s;
+        transition: opacity 0.4s ease 0.4s;
+        left: 14px;
+        top: 50%;
+        margin-top: -16px;
+        border-left: 16px solid #333;
+    }
+</style>
+<body>
+<div class="meny" height="100%">
+</div>
+<div class="meny-arrow"></div>
+    <div class="contents" height="100%">
+        <svg width="100%" height="100%" preserveAspectRatio="xMidYMid">
+            <g />
+        </svg>
+    </div>
+</body>
+<script src="lib/meny.js"></script>
+<script src="lib/d3.min.js"></script>
+<script src="lib/dagre-d3.min.js"></script>
+<script src="lib/opentip-native.js"></script>
+<script src="catalog.js"></script>
+</html>
