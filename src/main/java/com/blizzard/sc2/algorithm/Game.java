@@ -3,7 +3,7 @@ package com.blizzard.sc2.algorithm;
 import java.util.List;
 
 
-public interface Game {
+public interface Game extends Comparable<Game> {
 
     //~ ----------------------------------------------------------------------------------------------------------------
     //~ Methods 
@@ -18,4 +18,13 @@ public interface Game {
     boolean isWin();
 
     void applyMove(Move move);
+
+    Game copy();
+
+    void printHistory();
+
+    int getGoalScore();
+
+    Move getCollapsibleElement();
+
 }

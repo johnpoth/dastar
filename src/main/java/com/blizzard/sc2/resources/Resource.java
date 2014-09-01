@@ -6,9 +6,9 @@ public class Resource implements Comparable<Resource> {
     //~ Instance fields 
     //~ ----------------------------------------------------------------------------------------------------------------
 
-    private int gas;
+    private double gas;
 
-    private int minerals;
+    private double minerals;
 
     //~ ----------------------------------------------------------------------------------------------------------------
     //~ Constructors 
@@ -17,7 +17,7 @@ public class Resource implements Comparable<Resource> {
     /**
      * @param minerals
      */
-    public Resource(int minerals, int gas) {
+    public Resource(double minerals, double gas) {
         this.minerals = minerals;
         this.gas = gas;
     }
@@ -29,29 +29,15 @@ public class Resource implements Comparable<Resource> {
     /**
      * @return the gas
      */
-    public final int getGas() {
-        return gas;
-    }
-
-    /**
-     * @param gas the gas to set
-     */
-    public final void setGas(int gas) {
-        this.gas = gas;
+    public final double getGas() {
+        return this.gas;
     }
 
     /**
      * @return the minerals
      */
-    public final int getMinerals() {
+    public final double getMinerals() {
         return this.minerals;
-    }
-
-    /**
-     * @param minerals the minerals to set
-     */
-    public final void setMinerals(int minerals) {
-        this.minerals = minerals;
     }
 
     @Override
@@ -59,11 +45,22 @@ public class Resource implements Comparable<Resource> {
         if ((o.getGas() == this.getGas()) && (o.getMinerals() == this.getMinerals())) {
             return 0;
         }
-        // TODO Auto-generated method stub
-        if ((o.getGas() < this.getGas()) || (o.getMinerals() < this.getMinerals())) {
+        if (( this.getGas() < o.getGas() ) || ( this.getMinerals() < o.getMinerals() )) {
             return -1;
         }
         return 1;
+    }
+
+    public void applyDelta(Resource resource, int sign) {
+        this.minerals += resource.getMinerals() * sign;
+        this.gas += resource.getGas() * sign;
+        if ((this.minerals < 0) || (this.gas < 0)) {
+            throw new IllegalStateException("Negative resources!");
+        }
+    }
+
+    public Resource copy() {
+        return new Resource(minerals, gas);
     }
 
 }

@@ -1,0 +1,20 @@
+<jxb:bindings
+    version="1.0"
+    xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+    xmlns:namespace="http://jaxb2-commons.dev.java.net/namespace-prefix"
+    xmlns:inheritance="http://jaxb2-commons.dev.java.net/basic/inheritance" 
+    
+    xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd http://jaxb2-commons.dev.java.net/namespace-prefix http://java.net/projects/jaxb2-commons/sources/svn/content/namespace-prefix/trunk/src/main/resources/prefix-namespace-schema.xsd">
+
+    <jxb:bindings
+        schemaLocation="graph.xsd">
+        <jxb:schemaBindings>
+            <jxb:package name="com.blizzard.sc2.graph" />
+        </jxb:schemaBindings>
+    </jxb:bindings>
+
+</jxb:bindings>
+<!-- -->
